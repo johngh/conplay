@@ -1,25 +1,25 @@
 # Nad Ta-trou
 G4:qu
 A4:qu
-B4:cr
+a_4:cr
 
 # sa bly-ska
-B4:cr
-B4:qu
-B4:qu
+a_4:cr
+a_4:qu
+a_4:qu
 
 # hro-my di-vo
 A4:qu
-B4:qu
+a_4:qu
 C5:qu
-B4:qu
+a_4:qu
 
 # bi-ju
 A4:cr
 G4:cr
 
 # Nad Ta-trou
-B4:qu
+a_4:qu
 C5:qu
 D5:cr
 
@@ -31,12 +31,12 @@ D5:qu
 # hro-my di-vo
 C5:qu
 D5:qu
-E5:qu
+d_5:qu
 D5:qu
 
 # bi-ju
 C5:cr
-B4:cr
+a_4:cr
 
 # Zas-tav-me
 D5:qu
@@ -54,15 +54,15 @@ D5:qu
 C5:cr
 
 # ny stra-tia,
-B4:cr
-B4:qu
-B4:qu
+a_4:cr
+a_4:qu
+a_4:qu
 
 # Slo-va-ci o-
 A4:qu
-B4:qu
+a_4:qu
 C5:qu
-B4:qu
+a_4:qu
 
 # ui- ju.
 A4:cr
