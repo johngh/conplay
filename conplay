@@ -11,40 +11,24 @@ use Time::HiRes qw(usleep nanosleep);
 =cut
 
 =note frequencies
-56  E5           659.255
-55  D#5/Eb5      622.254
-54  D5           587.330
-53  C#5/Db5      554.365
-52  C5           523.251
-51  B4           493.883
-50  A#4/Bb4      466.164
-49  A4 A440      440.000
-48  G#4/Ab4      415.305
-47  G4           391.995
-46  F#4/Gb4      369.994
-45  F4           349.228
-44  E4           329.628
-43  D#4/Eb4      311.127
-42  D4           293.665
-41  C#4/Db4      277.183
-40  C4 Middle C  261.626
+    http://en.wikipedia.org/wiki/Piano_key_frequencies
 =cut
 
 # Notes
-my $notes = {
-    c4 => 262,
-    C4 => 277,
-    d4 => 294,
-    e4 => 330,
-    f4 => 349,
-    F4 => 370,
-    g4 => 392,
-    a4 => 440,
-    b4 => 494,
-    c5 => 523,
-    d5 => 587,
-    e5 => 659,
-};
+my $notes;
+my $freqs = 'freqs.txt';
+
+open (my $freqs_fh, "$freqs") || die "Can't read '$freqs': $!\n";
+while (defined (my $line = <$freqs_fh>)) {
+
+    #
+    next if $line !~ /^([A-Ga-g1-5_]+)\s+([\d\.]+)$/;
+    my ($note, $freq) = ($1, $2);
+    chomp $freq;
+    $notes->{$note} = $freq;
+
+}
+close $freqs_fh;
 
 # Duration
 my $dur = {
