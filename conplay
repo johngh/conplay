@@ -31,14 +31,20 @@ while (defined (my $line = <$freqs_fh>)) {
 close $freqs_fh;
 
 # Duration
-my $dur = {
-    sq => 100,
-    qu => 200,
-    qd => 300,
-    cr => 400,
-    cd => 600,
-    mi => 800,
-};
+my $dur;
+my $durs = 'durs.txt';
+
+open (my $durs_fh, "$durs") || die "Can't read '$durs': $!\n";
+while (defined (my $line = <$durs_fh>)) {
+
+    #
+    next if $line !~ /^([a-z]{2})\s+([\d]+)$/;
+    my ($note, $ms) = ($1, $2);
+    chomp $ms;
+    $dur->{$note} = $ms;
+
+}
+close $durs_fh;
 
 sub play($$) {
     my ($freq, $dur) = (shift, shift);
@@ -69,7 +75,7 @@ while (defined (my $line = <$file_fh>)) {
 
     #
     next if $line =~ /^\s*$/;
-    if ( $line =~ /(\w+),\s*(\w+)/ ) {
+    if ( $line =~ /([A-Ga-z\d_]+):([a-z]{2})/ ) {
         if ( $1 eq 'rest' ) {
             rest $dur->{$2};
         } else {
